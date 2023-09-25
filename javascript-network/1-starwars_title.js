@@ -3,8 +3,9 @@
 const request = require('request');
 const movie_ID = process.argv[2];
 const url = 'https://swapi-api.alx-tools.com/api/films/:id';
+const mainUrl = url.concat(movie_ID);
 
-request(url, function(error, response, body) {
+request(mainUrl, function(error, response, body) {
     if (error) {
         console.error(error);
     }
