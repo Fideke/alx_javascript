@@ -7,7 +7,7 @@ const { error } = require('console');
 const url = process.argv[2];
 const filePath = process.argv[3];
 
-request(url, (error, Response, body) => {
+request(url, (error, response, body) => {
     if (error) {
         console.error(error);
     }
