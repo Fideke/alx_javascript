@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indexfile</title>
+</head>
+<body>
+    <div id="login form">
+        <h2>login to the website</h2>
+        <input type="text" id="firstname" placeholder="Firstname">
+        <input type="text" id="email" placeholder="Email">
+        <button onclick="setCookies()">Log me in</button>
+        <h1>Cookies</h1>
+        <button onclick="showCookies">Show the cookies</button>
+    </div>
+    <script>
+       function setcookies() {
+        const firstname = document.getElementById("firstname").value;
+        const email = document.getElementById("email").value;
+        const date = new Date();
+        date.setDate(date.getDate() + 10);
+        const expires = "expires=" + date.toUTCString();
+        if (firstname) document.cookie = `firsname=${firstname} ; ${expires}; path=/`;
+        if (email) document.cookie = `email=${email}; ${expires}; path=/`;
+       }
+
+       function showCookies() {
+        const EMAIL = getCookie("Email");
+        const FIRSTNAME = getCookie("Firstname");
+
+        const cookiesParagraph = document.createElement("p");
+        cookiesParagraph.innerHTML = `Email: ${EMAIL} - Firstname: ${FIRSTNAME}`;
+        document.body.appendChild(cookiesParagraph);
+       }
+
+       function getCookie(name) {
+        const cookies = document.cookie.split(';');
+        for (let i of list) {
+                let cookie = i.split("=");
+                if (name === cookie[0].trim()) return cookie[1].trim();
+            }
+       }
+
+       function showForm () {
+        
+       }
+    </script>
+</body>
+</html>
